@@ -1,0 +1,13 @@
+.draggable-element {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #7C4DFF;
+  border-radius: 8px
+}
+
+.draggable-element:active {
+  box-shadow: 0px 8px 65px 0px rgba(124,77,255,1);
+}

@@ -1,0 +1,71 @@
+[
+  {
+    "type": "openFile",
+    "path": "src/app/app.module.ts"
+  },
+  {
+    "type": "goto",
+    "line": 3
+  },
+  {
+    "type": "typeText",
+    "text": [
+      "import { DragDropModule } from '@angular/cdk/drag-drop';\n"
+    ]
+  },
+  {
+    "type": "goto",
+    "line": 12,
+    "column": 18
+  },
+  {
+    "type": "typeText",
+    "text": [
+      ",",
+      "    DragDropModule"
+    ]
+  },
+  {
+    "type": "wait",
+    "delay": 3000
+  },
+  {
+    "type": "openFile",
+    "path": "src/app/app.component.ts"
+  },
+  {
+    "type": "goto",
+    "line": 6,
+    "column": 14
+  },
+  {
+    "type": "typeText",
+    "text": [
+      "\n    <div class=\"draggable-element\">",
+      "      I'm a draggable element",
+      "    </div>"
+    ]
+  },
+  {
+    "type": "wait",
+    "delay": 3000
+  },
+  {
+    "type": "openFile",
+    "path": "src/app/app.component.css"
+  },
+  {
+    "type": "typeText",
+    "text": [
+      ".draggable-element {",
+      "  display: flex;",
+      "  align-items: center;",
+      "  text-align: center;",
+      "  width: 150px;",
+      "  height: 150px;",
+      "  border: 2px solid #7C4DFF;",
+      "  border-radius: 8px",
+      "}"
+    ]
+  }
+]
