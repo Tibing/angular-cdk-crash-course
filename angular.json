@@ -353,6 +353,123 @@
           }
         }
       }
+    },
+    "custompreview": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/custompreview",
+      "sourceRoot": "projects/custompreview/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/custompreview",
+            "index": "projects/custompreview/src/index.html",
+            "main": "projects/custompreview/src/main.ts",
+            "polyfills": "projects/custompreview/src/polyfills.ts",
+            "tsConfig": "projects/custompreview/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/custompreview/src/favicon.ico",
+              "projects/custompreview/src/assets"
+            ],
+            "styles": [
+              "projects/custompreview/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/custompreview/src/environments/environment.ts",
+                  "with": "projects/custompreview/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "custompreview:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "custompreview:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "custompreview:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/custompreview/src/test.ts",
+            "polyfills": "projects/custompreview/src/polyfills.ts",
+            "tsConfig": "projects/custompreview/tsconfig.spec.json",
+            "karmaConfig": "projects/custompreview/karma.conf.js",
+            "assets": [
+              "projects/custompreview/src/favicon.ico",
+              "projects/custompreview/src/assets"
+            ],
+            "styles": [
+              "projects/custompreview/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/custompreview/tsconfig.app.json",
+              "projects/custompreview/tsconfig.spec.json",
+              "projects/custompreview/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/custompreview/e2e/protractor.conf.js",
+            "devServerTarget": "custompreview:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "custompreview:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "dragdropbasics"
