@@ -236,6 +236,123 @@
           }
         }
       }
+    },
+    "transferbetweenlists": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/transferbetweenlists",
+      "sourceRoot": "projects/transferbetweenlists/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/transferbetweenlists",
+            "index": "projects/transferbetweenlists/src/index.html",
+            "main": "projects/transferbetweenlists/src/main.ts",
+            "polyfills": "projects/transferbetweenlists/src/polyfills.ts",
+            "tsConfig": "projects/transferbetweenlists/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/transferbetweenlists/src/favicon.ico",
+              "projects/transferbetweenlists/src/assets"
+            ],
+            "styles": [
+              "projects/transferbetweenlists/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/transferbetweenlists/src/environments/environment.ts",
+                  "with": "projects/transferbetweenlists/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "transferbetweenlists:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "transferbetweenlists:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "transferbetweenlists:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/transferbetweenlists/src/test.ts",
+            "polyfills": "projects/transferbetweenlists/src/polyfills.ts",
+            "tsConfig": "projects/transferbetweenlists/tsconfig.spec.json",
+            "karmaConfig": "projects/transferbetweenlists/karma.conf.js",
+            "assets": [
+              "projects/transferbetweenlists/src/favicon.ico",
+              "projects/transferbetweenlists/src/assets"
+            ],
+            "styles": [
+              "projects/transferbetweenlists/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/transferbetweenlists/tsconfig.app.json",
+              "projects/transferbetweenlists/tsconfig.spec.json",
+              "projects/transferbetweenlists/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/transferbetweenlists/e2e/protractor.conf.js",
+            "devServerTarget": "transferbetweenlists:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "transferbetweenlists:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "dragdropbasics"
