@@ -470,6 +470,123 @@
           }
         }
       }
+    },
+    "customplaceholder": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/customplaceholder",
+      "sourceRoot": "projects/customplaceholder/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/customplaceholder",
+            "index": "projects/customplaceholder/src/index.html",
+            "main": "projects/customplaceholder/src/main.ts",
+            "polyfills": "projects/customplaceholder/src/polyfills.ts",
+            "tsConfig": "projects/customplaceholder/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/customplaceholder/src/favicon.ico",
+              "projects/customplaceholder/src/assets"
+            ],
+            "styles": [
+              "projects/customplaceholder/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/customplaceholder/src/environments/environment.ts",
+                  "with": "projects/customplaceholder/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "customplaceholder:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "customplaceholder:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "customplaceholder:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/customplaceholder/src/test.ts",
+            "polyfills": "projects/customplaceholder/src/polyfills.ts",
+            "tsConfig": "projects/customplaceholder/tsconfig.spec.json",
+            "karmaConfig": "projects/customplaceholder/karma.conf.js",
+            "assets": [
+              "projects/customplaceholder/src/favicon.ico",
+              "projects/customplaceholder/src/assets"
+            ],
+            "styles": [
+              "projects/customplaceholder/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/customplaceholder/tsconfig.app.json",
+              "projects/customplaceholder/tsconfig.spec.json",
+              "projects/customplaceholder/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/customplaceholder/e2e/protractor.conf.js",
+            "devServerTarget": "customplaceholder:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "customplaceholder:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "dragdropbasics"
