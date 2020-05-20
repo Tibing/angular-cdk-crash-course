@@ -13,7 +13,6 @@ li {
   padding: 1rem 2rem;
   list-style: none;
   user-select: none;
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 li:not(:last-child) {
@@ -31,4 +30,14 @@ li:not(:last-child) {
 
 .cdk-drag-placeholder {
   opacity: 0;
+}
+
+/* Animate items as they're being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 1, 1);
+}
+
+/* Animate an item that has been dropped. */
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 1, 1);
 }
